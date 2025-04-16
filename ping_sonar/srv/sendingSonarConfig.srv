@@ -1,4 +1,0 @@
-int64 stepSize
-int64 range
----
-bool worked
