@@ -1,0 +1,31 @@
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="transform_sonar_frame" args="0 0 0 0 0 0 1 map sonar_frame 10" />
+    <env name="emulated_sonar" value="false" />
+    <node pkg="ping_sonar" type="ping360_node" name="ping360_node" output="screen">
+        <param name="device" value="/dev/ttyUSB0"/>
+        <param name="baudrate" value="115200"/>
+        <param name="debug" value="False"/>
+        <param name="imgSize" value="500"/>
+        <param name="gain" value="0"/>
+        <param name="step" value="10"/>
+        <param name="numberOfSamples" value="1200"/>
+        <param name="transmitFrequency" value="750"/>
+        <param name="sonarRange" value="10"/>
+        <param name="speedOfSound" value="1500"/>
+        <param name="queueSize" value="1"/>
+        <param name="threshold" value="10"/>
+        <param name="enableImageTopic" value="False"/>
+        <param name="enableScanTopic" value="True"/>
+        <param name="enableDataTopic" value="True"/>
+        <param name="maxAngle" value="400"/>
+        <param name="minAngle" value="0"/> 
+        <param name="oscillate" value="false"/>
+    </node>
+    <!-- Start the image data topic as well(in different thread and c++ for speed -->
+    <node pkg="ping_sonar" type="conversionSonarData" name="conversionSonarData" output="screen" required="true">
+    </node>
+    <!-- <node pkg="ping360_sonar" type="HoughLines.py" name="HoughLines" output="screen">
+    </node> -->
+    <node pkg="ping_sonar" type="PolarExtractor.py" name="PolarExtractor" output='screen'/>
+    
+</launch>
