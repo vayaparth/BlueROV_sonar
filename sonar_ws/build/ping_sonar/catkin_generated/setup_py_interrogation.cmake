@@ -1,0 +1,7 @@
+set(ping_sonar_SETUP_PY_SETUP_MODULE "distutils.core")
+set(ping_sonar_SETUP_PY_VERSION "1.4.0")
+set(ping_sonar_SETUP_PY_SCRIPTS "")
+set(ping_sonar_SETUP_PY_PACKAGES "ping_sonar")
+set(ping_sonar_SETUP_PY_PACKAGE_DIRS "src/ping_sonar")
+set(ping_sonar_SETUP_PY_MODULES "")
+set(ping_sonar_SETUP_PY_MODULE_DIRS "")

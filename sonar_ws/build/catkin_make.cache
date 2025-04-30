@@ -1,0 +1,2 @@
+ping_sonar
+-DCATKIN_DEVEL_PREFIX=/home/ubuntu/sonar_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/sonar_ws/install -G Unix Makefiles
